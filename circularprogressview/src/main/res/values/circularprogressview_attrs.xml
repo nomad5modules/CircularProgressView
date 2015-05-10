@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="CircularProgressView">
+		<attr name="progressColor" format="color"/>
+		<attr name="progressText" format="string"/>
+		<attr name="progressTextColor" format="color"/>
+		<attr name="progressTextFont" format="string"/>
+		<attr name="progressTextSize" format="integer"/>
+		<attr name="borderOffset"	format="integer"/>
+	</declare-styleable>
+</resources>

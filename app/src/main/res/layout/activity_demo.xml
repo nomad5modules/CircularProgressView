@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android=			"http://schemas.android.com/apk/res/android"
+				xmlns:tools=			"http://schemas.android.com/tools"
+				xmlns:circularProgress=	"http://schemas.android.com/apk/res-auto"
+				android:layout_width=	"match_parent"
+				android:layout_height=	"match_parent"
+				tools:context=			"momentum.circularprogress.DemoActivityFragment"
+				android:background=		"@drawable/background_main">
+
+	<momentum.circularprogressview.CircularProgressView
+		android:id=							"@+id/circularprogress"
+		android:layout_width=				"match_parent"
+		android:layout_height=				"match_parent"
+		circularProgress:progressText=		"TEST PROGRESS"
+		circularProgress:progressColor=		"#FFFFFF"
+		circularProgress:progressTextColor=	"#ff5aa74a"
+		circularProgress:progressTextFont=	"consolab.ttf"
+		circularProgress:borderOffset=		"150"/>
+
+	<Button	android:id=							"@+id/start"
+		   	android:onClick=					"onStart"
+		   	android:layout_width=				"wrap_content"
+			android:layout_height=				"wrap_content"
+			android:text=						"Start"
+		   	android:layout_alignParentBottom=	"true"
+			android:layout_centerInParent=		"true"
+		   	tools:ignore=						"HardcodedText"/>
+
+</RelativeLayout>
