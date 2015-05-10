@@ -11,6 +11,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.os.Looper;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -19,9 +20,6 @@ import android.view.View;
  *
  * A progress view that shows the progress as a filling arc shape.
  * It renders the text in the inverse color.
- *
- * Pay attention if you are calling the progress update from the ui thread or not,
- * two separate methods exist.
  */
 public class CircularProgressView extends View
 {
@@ -183,23 +181,18 @@ public class CircularProgressView extends View
 	/**
 	 * Public progress setter
 	 * (floats from 0 to 1)
-	 * Use this method if you are calling from the ui thread
 	 */
 	public synchronized void setProgress(float progress)
 	{
-		// TODO run postInvalidate if this is not the ui thread calling
 		this.progress = progress;
-		this.invalidate();
+		// check if this is the ui thread
+		if(Looper.myLooper() == Looper.getMainLooper())
+		{
+			this.invalidate();
+		}
+		else
+		{
+			this.postInvalidate();
+		}
 	}
-
-	/**
-	 * Public progress setter
-	 * (floats from 0 to 1)
-	 * Use this if a non-ui-thread wants to update the progress
-	 */
-	/*public synchronized void setProgressNonUiThread(float progress)
-	{
-		this.progress = progress;
-		this.postInvalidate();
-	}*/
 }
