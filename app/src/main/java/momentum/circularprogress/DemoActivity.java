@@ -38,7 +38,7 @@ public class DemoActivity extends Activity
 			{
 				for(float progress = 0f; progress <= 1f; progress += 0.005)
 				{
-					progressView.setProgressNonUiThread(progress);
+					progressView.setProgress(progress);
 					try
 					{
 						Thread.sleep(20);

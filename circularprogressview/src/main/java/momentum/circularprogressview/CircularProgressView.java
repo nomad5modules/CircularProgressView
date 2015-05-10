@@ -18,7 +18,10 @@ import android.view.View;
  * Created by mlostek on 10.05.2015.
  *
  * A progress view that shows the progress as a filling arc shape.
- * It renders the text in the inverse color
+ * It renders the text in the inverse color.
+ *
+ * Pay attention if you are calling the progress update from the ui thread or not,
+ * two separate methods exist.
  */
 public class CircularProgressView extends View
 {
@@ -108,11 +111,10 @@ public class CircularProgressView extends View
 	}
 	//endregion////////////////////////////////////////////////////////////////////////////
 
-	/**
-	 * Initialize the view
-	 */
-	private void init(int width, int height)
+	@Override
+	protected void onSizeChanged(int width, int height, int oldWidth, int oldHeight)
 	{
+		super.onSizeChanged(width, height, oldWidth, oldHeight);
 		// save dimensions
 		this.width = width;
 		this.height = height;
@@ -123,9 +125,9 @@ public class CircularProgressView extends View
 		this.canvasForeground = new Canvas(this.bmpForeground);
 		// create render objects
 		this.progressBounds = new RectF(-this.borderOffset,
-										-this.borderOffset,
-										this.width + this.borderOffset,
-										this.height + this.borderOffset);
+											   -this.borderOffset,
+											   this.width + this.borderOffset,
+											   this.height + this.borderOffset);
 		// the painter
 		if(this.progressFont != null)
 		{
@@ -139,13 +141,6 @@ public class CircularProgressView extends View
 	}
 
 	@Override
-	protected void onSizeChanged(int width, int height, int oldWidth, int oldHeight)
-	{
-		super.onSizeChanged(width, height, oldWidth, oldHeight);
-		this.init(width, height);
-	}
-
-	@Override
 	protected void onDraw(Canvas canvas)
 	{
 		if(this.progress <= 0f || this.progress >= 1f)
@@ -153,7 +148,6 @@ public class CircularProgressView extends View
 			canvas.drawColor(Color.TRANSPARENT);
 			return;
 		}
-
 		float progressAngle = this.progress * 360f;
 		float x = (this.width / 2f);
 		float y = (this.height / 2f) - this.textBounds.exactCenterY();
@@ -177,12 +171,23 @@ public class CircularProgressView extends View
 	}
 
 	/**
+	 * Set the title of this view programmatically
+	 * Updates the text bounds needed for rendering
+	 */
+	public void setText(String text)
+	{
+		this.progressText = text;
+		this.paint.getTextBounds(this.progressText, 0, this.progressText.length(), this.textBounds);
+	}
+
+	/**
 	 * Public progress setter
 	 * (floats from 0 to 1)
 	 * Use this method if you are calling from the ui thread
 	 */
 	public synchronized void setProgress(float progress)
 	{
+		// TODO run postInvalidate if this is not the ui thread calling
 		this.progress = progress;
 		this.invalidate();
 	}
@@ -192,9 +197,9 @@ public class CircularProgressView extends View
 	 * (floats from 0 to 1)
 	 * Use this if a non-ui-thread wants to update the progress
 	 */
-	public synchronized void setProgressNonUiThread(float progress)
+	/*public synchronized void setProgressNonUiThread(float progress)
 	{
 		this.progress = progress;
 		this.postInvalidate();
-	}
+	}*/
 }
