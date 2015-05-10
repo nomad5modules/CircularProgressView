@@ -26,8 +26,9 @@ public class DemoActivity extends Activity
 	/**
 	 * Start the progress
 	 */
-	public void onStart(View view)
+	public void onStart(final View view)
 	{
+		view.setEnabled(false);
 		final CircularProgressView progressView = (CircularProgressView)this.findViewById(R.id.circularprogress);
 		Assert.assertNotNull(progressView);
 		new AsyncTask<Void, Void, Void>()
@@ -48,6 +49,12 @@ public class DemoActivity extends Activity
 					}
 				}
 				return null;
+			}
+
+			@Override
+			protected void onPostExecute(Void aVoid)
+			{
+				view.setEnabled(true);
 			}
 		}.execute();
 	}

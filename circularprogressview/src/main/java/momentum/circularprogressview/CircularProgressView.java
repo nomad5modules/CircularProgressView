@@ -41,9 +41,8 @@ public class CircularProgressView extends View
 	int height = 0;
 
 	// the paintProgress and the path
-	final Paint paintText = 		new Paint(Paint.ANTI_ALIAS_FLAG);
-	final Paint paintXferClear = 	new Paint(Paint.ANTI_ALIAS_FLAG);
 	final Paint paint = 			new Paint(Paint.ANTI_ALIAS_FLAG);
+	final PorterDuffXfermode cls = 	new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
 
 	RectF progressBounds;
 	Rect textBounds = new Rect();
@@ -114,34 +113,29 @@ public class CircularProgressView extends View
 	 */
 	private void init(int width, int height)
 	{
+		// save dimensions
 		this.width = width;
 		this.height = height;
+		// bitmaps and canvas
+		this.bmpBackground = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888);
+		this.canvasBackground = new Canvas(this.bmpBackground);
+		this.bmpForeground = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888);
+		this.canvasForeground = new Canvas(this.bmpForeground);
 		// create render objects
 		this.progressBounds = new RectF(-this.borderOffset,
 										-this.borderOffset,
 										this.width + this.borderOffset,
 										this.height + this.borderOffset);
-		// clear painter
-		this.paintXferClear.setStyle(Paint.Style.FILL);
-		this.paintXferClear.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-		// main painter
-		this.paint.setStyle(Paint.Style.FILL);
-		// background
-		this.bmpBackground = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888);
-		this.canvasBackground = new Canvas(this.bmpBackground);
-		// foreground
-		this.bmpForeground = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888);
-		this.canvasForeground = new Canvas(this.bmpForeground);
-		// text
+		// the painter
 		if(this.progressFont != null)
 		{
-			this.paintText.setTypeface(Typeface.createFromAsset(this.getContext().getAssets(), this.progressFont));
+			this.paint.setTypeface(Typeface.createFromAsset(this.getContext().getAssets(), this.progressFont));
 		}
-		this.paintText.setTextSize(this.progressTextSize);
-		this.paintText.setStyle(Paint.Style.FILL);
-		this.paintText.setTextAlign(Paint.Align.CENTER);
+		this.paint.setTextSize(this.progressTextSize);
+		this.paint.setStyle(Paint.Style.FILL);
+		this.paint.setTextAlign(Paint.Align.CENTER);
 		// get text bounds
-		this.paintText.getTextBounds(this.progressText, 0, this.progressText.length(), this.textBounds);
+		this.paint.getTextBounds(this.progressText, 0, this.progressText.length(), this.textBounds);
 	}
 
 	@Override
@@ -164,15 +158,19 @@ public class CircularProgressView extends View
 		float x = (this.width / 2f);
 		float y = (this.height / 2f) - this.textBounds.exactCenterY();
 		// background
-		this.paintText.setColor(this.progressTextColor);
+		this.paint.setColor(this.progressTextColor);
 		this.canvasBackground.drawColor(Color.WHITE);
-		this.canvasBackground.drawText(this.progressText, x, y, this.paintText);
-		this.canvasBackground.drawArc(this.progressBounds, -90f + progressAngle, 360f - progressAngle, true, this.paintXferClear);
+		this.canvasBackground.drawText(this.progressText, x, y, this.paint);
+		this.paint.setXfermode(this.cls);
+		this.canvasBackground.drawArc(this.progressBounds, -90f + progressAngle, 360f - progressAngle, true, this.paint);
+		this.paint.setXfermode(null);
 		// foreground
-		this.paintText.setColor(Color.WHITE);
+		this.paint.setColor(Color.WHITE);
 		this.canvasForeground.drawColor(Color.TRANSPARENT);
-		this.canvasForeground.drawText(this.progressText, x, y, this.paintText);
-		this.canvasForeground.drawArc(this.progressBounds, -90f, progressAngle, true, this.paintXferClear);
+		this.canvasForeground.drawText(this.progressText, x, y, this.paint);
+		this.paint.setXfermode(this.cls);
+		this.canvasForeground.drawArc(this.progressBounds, -90f, progressAngle, true, this.paint);
+		this.paint.setXfermode(null);
 		// compose
 		canvas.drawBitmap(this.bmpBackground, 0, 0, this.paint);
 		canvas.drawBitmap(this.bmpForeground, 0, 0, this.paint);
