@@ -10,14 +10,16 @@
 		android:id=							"@+id/circularprogress"
 		android:layout_width=				"match_parent"
 		android:layout_height=				"match_parent"
-		circularProgress:progressText=		"TEST PROGRESS"
 		circularProgress:progressColor=		"#FFFFFF"
+		circularProgress:progressText=		"TEST PROGRESS"
 		circularProgress:progressTextColor=	"#ff5aa74a"
 		circularProgress:progressTextFont=	"consolab.ttf"
-		circularProgress:borderOffset=		"150"/>
+		circularProgress:progressTextSize=	"36"
+		circularProgress:borderOffset=		"150"
+		circularProgress:fadeTime=			"500"/>
 
 	<Button	android:id=							"@+id/start"
-		   	android:onClick=					"onStart"
+		   	android:onClick=					"onStartClicked"
 		   	android:layout_width=				"wrap_content"
 			android:layout_height=				"wrap_content"
 			android:text=						"Start"

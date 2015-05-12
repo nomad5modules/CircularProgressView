@@ -12,7 +12,7 @@ import momentum.circularprogressview.CircularProgressView;
 /**
  * Created by mlostek on 04.05.2015.
  *
- * Demo activity to show the CircularProgressView
+ * Demo activity to demonstrate the CircularProgressView
  */
 public class DemoActivity extends Activity
 {
@@ -26,7 +26,7 @@ public class DemoActivity extends Activity
 	/**
 	 * Start the progress
 	 */
-	public void onStart(final View view)
+	public void onStartClicked(final View view)
 	{
 		view.setEnabled(false);
 		final CircularProgressView progressView = (CircularProgressView)this.findViewById(R.id.circularprogress);
@@ -41,7 +41,7 @@ public class DemoActivity extends Activity
 					progressView.setProgress(progress);
 					try
 					{
-						Thread.sleep(20);
+						Thread.sleep(30);
 					}
 					catch(InterruptedException e)
 					{
@@ -54,6 +54,7 @@ public class DemoActivity extends Activity
 			@Override
 			protected void onPostExecute(Void aVoid)
 			{
+				progressView.setProgress(1f);
 				view.setEnabled(true);
 			}
 		}.execute();
