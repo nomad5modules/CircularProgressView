@@ -17,6 +17,7 @@ All values are optional. If you want to reuse the view from the code, simply set
 
 Following XML attributes are allowed
 
+```xml
 <!-- The main color of the progress ARC,
      the text will be rendered in this color where
      the arc is not yet painted -->
@@ -36,6 +37,7 @@ progressTextSize=	"36"
 borderOffset=		"150"
 <!-- The fade in and fade out time, can be set to -1 to ignore fading -->
 fadeTime=			"500"
+```
 
 ## Example Application
 * An example application is included in the github repository. It can also be downloaded from the playstore here.
