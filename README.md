@@ -13,6 +13,8 @@ It also supports a custom font (that is places in the 'assets' directory) and fa
 All values are optional. If you want to reuse the view from the code, simply set the class members in the CircularProgressView class accordingly.
 
 
+![alt text](https://github.com/momentumlab/CircularProgressView/blob/master/example.png "Example")
+
 ## XML Attributes
 
 Following XML attributes are allowed
