@@ -8,12 +8,26 @@ android {
         minSdkVersion 3
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    libraryVariants.all { variant ->
+        if(variant.name == "release")
+        variant.outputs.each { output ->
+            def file = output.outputFile
+            // rename output file
+            output.outputFile = new File(file.parent,
+                                         file.name.replace("release", "-v" + defaultConfig.versionName))
+            // create copy task
+            def task = project.tasks.create("_publishReleaseApk", Copy)
+            task.from(output.outputFile)
+            task.into("" + rootDir + "/aar")
         }
     }
 }
