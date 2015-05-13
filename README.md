@@ -60,7 +60,7 @@ fadeTime:
 * An example application is included in the github repository. It can also be downloaded from the playstore soon.
 
 ## Precompiled AAR
-You can download the latest precompiled version here https://github.com/momentumlab/CircularProgressView/blob/master/aar/circularprogressview--v1.0.1.aar
+You can download the latest precompiled version here https://github.com/momentumlab/CircularProgressView/blob/master/aar/circularprogressview-v1.0.1.aar
 
 ## Additional information
 * Set the progress to 0 (at the beginning) and 1 (at the end).
