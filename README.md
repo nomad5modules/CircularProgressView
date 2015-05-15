@@ -1,6 +1,7 @@
 # CircularProgressView
 
 A circular progressview for android
+
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-CircularProgressView-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/1815)
 
 ## About
