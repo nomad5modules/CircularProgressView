@@ -26,7 +26,7 @@ import android.view.View;
 public class CircularProgressView extends View
 {
 	// This is the size of the arc shape
-	private int borderOffset = 		150;
+	private int borderOffset = 		250;
 	// The color of the circular progress
 	private int progressColor = 	Color.WHITE;
 	// The color of the text in the foreground
