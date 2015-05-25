@@ -68,6 +68,7 @@ You can download the latest precompiled version here https://github.com/momentum
 ## Additional information
 * Set the progress to 0 (at the beginning) and 1 (at the end).
 * 'wrapcontent' for dimensions is not yet supported
+* Aliasing problem will be fixed soon
 
 ## License
 Check file LICENSE and Make sure to follow the licensing terms and conditions of the project and the software used to build the project.
