@@ -1,4 +1,10 @@
 apply plugin: 'com.android.application'
+apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master/version.gradle'
+
+// VERSION
+versionMajor = 1
+versionMinor = 0
+versionPatch = 2
 
 android {
     compileSdkVersion 22
@@ -8,8 +14,8 @@ android {
         applicationId "momentum.circularprogress"
         minSdkVersion 11
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0.1"
+        versionCode genVersionCode()
+        versionName genVersionName()
     }
     buildTypes {
         release {

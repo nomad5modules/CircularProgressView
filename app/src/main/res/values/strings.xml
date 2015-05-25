@@ -1,4 +1,4 @@
 <resources>
 	<string name="app_name">CircularProgress</string>
-	<string name="title_activity_demo">CircularProgressDemo</string>
+	<string name="title_activity_demo">Circular Progress</string>
 </resources>
