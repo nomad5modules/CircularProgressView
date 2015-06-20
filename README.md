@@ -60,7 +60,7 @@ fadeTime:
 > The fade in and fade out time, can be set to -1 to ignore fading
 
 ## Example Application
-* An example application is included in the github repository. It can also be downloaded from the playstore soon.
+* An example application is included in the github repository. It can also be downloaded from the playstore here https://play.google.com/store/apps/details?id=momentum.circularprogress
 
 ## Precompiled AAR
 You can download the latest precompiled version here https://github.com/momentumlab/CircularProgressView/blob/master/aar/circularprogressview-v1.0.2.aar
@@ -76,3 +76,5 @@ Check file LICENSE and Make sure to follow the licensing terms and conditions of
 ## Feedback
 If you have any questions or feedback, feel free to get back to me!
 
+## Next Todo's
+* Antialiasing problem on the font
