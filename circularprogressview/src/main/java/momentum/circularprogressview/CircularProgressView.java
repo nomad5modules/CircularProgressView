@@ -273,4 +273,6 @@ public class CircularProgressView extends View
 		this.fadeThread = new Thread(new FadeRunnable(fadeIn, this.fadeTime));
 		this.fadeThread.start();
 	}
+
+
 }

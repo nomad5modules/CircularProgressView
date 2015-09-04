@@ -7,7 +7,7 @@ apply from: 'X:\\libs\\gradle\\Versioning\\version.gradle'
 // VERSION
 versionMajor = 1
 versionMinor = 0
-versionPatch = 2
+versionPatch = 3
 
 android {
     compileSdkVersion 22
