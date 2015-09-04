@@ -1,7 +1,8 @@
 package momentum.circularprogress;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 
@@ -31,32 +32,27 @@ public class DemoActivity extends Activity
 		view.setEnabled(false);
 		final CircularProgressView progressView = (CircularProgressView)this.findViewById(R.id.circularprogress);
 		Assert.assertNotNull(progressView);
-		new AsyncTask<Void, Void, Void>()
+		ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f);
+		animator.setDuration(5000);
+		animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener()
 		{
 			@Override
-			protected Void doInBackground(Void... voids)
+			public void onAnimationUpdate(ValueAnimator animation)
 			{
-				for(float progress = 0f; progress <= 1f; progress += 0.005)
-				{
-					progressView.setProgress(progress);
-					try
-					{
-						Thread.sleep(30);
-					}
-					catch(InterruptedException e)
-					{
-						e.printStackTrace();
-					}
-				}
-				return null;
+				progressView.setProgress(animation.getAnimatedFraction());
 			}
-
+		});
+		animator.addListener(new Animator.AnimatorListener()
+		{
 			@Override
-			protected void onPostExecute(Void aVoid)
-			{
-				progressView.setProgress(1f);
-				view.setEnabled(true);
-			}
-		}.execute();
+			public void onAnimationStart(Animator animation){}
+			@Override
+			public void onAnimationEnd(Animator animation){	view.setEnabled(true); }
+			@Override
+			public void onAnimationCancel(Animator animation){}
+			@Override
+			public void onAnimationRepeat(Animator animation){}
+		});
+		animator.start();
 	}
 }
