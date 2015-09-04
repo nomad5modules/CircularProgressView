@@ -11,6 +11,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.graphics.Xfermode;
 import android.os.Looper;
 import android.util.AttributeSet;
 import android.view.View;
@@ -29,8 +30,6 @@ public class CircularProgressView extends View
 	private int borderOffset = 		250;
 	// The color of the circular progress
 	private int progressColor = 	Color.WHITE;
-	// The color of the text in the foreground
-	private int progressTextColor = Color.BLACK;
 	// The size of the text
 	private int progressTextSize = 	32;
 	// The font of the text
@@ -104,7 +103,6 @@ public class CircularProgressView extends View
 			// get attributes
 			this.borderOffset = array.getInt(R.styleable.CircularProgressView_borderOffset, this.borderOffset);
 			this.progressColor = array.getInt(R.styleable.CircularProgressView_progressColor, this.progressColor);
-			this.progressTextColor = array.getInt(R.styleable.CircularProgressView_progressTextColor, this.progressTextColor);
 			this.progressTextSize = array.getInt(R.styleable.CircularProgressView_progressTextSize, this.progressTextSize);
 			this.progressFont = array.getString(R.styleable.CircularProgressView_progressTextFont);
 			String text = array.getString(R.styleable.CircularProgressView_progressText);
@@ -191,14 +189,16 @@ public class CircularProgressView extends View
 		float x = (this.width / 2f);
 		float y = (this.height / 2f) - this.textBounds.exactCenterY();
 		// background
-		this.paint.setColor(this.progressTextColor);
-		this.canvasBackground.drawColor(this.progressColor);
-		this.canvasBackground.drawText(this.progressText, x, y, this.paint);
-		this.paint.setXfermode(this.cls);
-		this.canvasBackground.drawArc(this.progressBounds, -90f + progressAngle, 360f - progressAngle, true, this.paint);
 		this.paint.setXfermode(null);
+		this.paint.setColor(Color.BLACK);
+		this.canvasBackground.drawColor(this.progressColor);
+		this.paint.setXfermode(this.cls);
+		this.canvasBackground.drawText(this.progressText, x, y, this.paint);
+		this.canvasBackground.drawArc(this.progressBounds, -90f + progressAngle, 360f - progressAngle, true, this.paint);
 		// foreground
+		this.paint.setXfermode(null);
 		this.paint.setColor(this.progressColor);
+		this.bmpForeground.eraseColor(Color.argb(0, 0, 0, 0));
 		this.canvasForeground.drawColor(Color.TRANSPARENT);
 		this.canvasForeground.drawText(this.progressText, x, y, this.paint);
 		this.paint.setXfermode(this.cls);
@@ -214,6 +214,7 @@ public class CircularProgressView extends View
 	 * Set the title of this view programmatically
 	 * Updates the text bounds needed for rendering
 	 */
+	@SuppressWarnings("unused")
 	public void setText(String text)
 	{
 		this.progressText = text;

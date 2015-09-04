@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
-apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master/version.gradle'
+/* this is for online work */
+//apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master/version.gradle'
+/* this is for offline work */
+apply from: 'X:\\libs\\gradle\\Versioning\\version.gradle'
 
 // VERSION
 versionMajor = 1
@@ -8,7 +11,7 @@ versionPatch = 2
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "momentum.circularprogress"
