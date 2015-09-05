@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 /* this is for online work */
-//apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master/version.gradle'
+apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master/version.gradle'
 /* this is for offline work */
-apply from: 'X:\\libs\\gradle\\Versioning\\version.gradle'
+//apply from: 'X:\\libs\\gradle\\Versioning\\version.gradle'
 
 // VERSION
 versionMajor = 1
@@ -10,12 +10,12 @@ versionMinor = 1
 versionPatch = 0
 
 android {
-    compileSdkVersion 22
+    compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode genVersionCode()
         versionName genVersionName()
     }

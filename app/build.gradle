@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 /* this is for online work */
-//apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master/version.gradle'
+apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master/version.gradle'
 /* this is for offline work */
-apply from: 'X:\\libs\\gradle\\Versioning\\version.gradle'
+//apply from: 'X:\\libs\\gradle\\Versioning\\version.gradle'
 
 // VERSION
 versionMajor = 1
