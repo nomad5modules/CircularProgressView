@@ -6,7 +6,7 @@ apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master
 
 // VERSION
 versionMajor = 1
-versionMinor = 1
+versionMinor = 2
 versionPatch = 0
 
 android {
@@ -35,4 +35,5 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':circularprogressview')
+    //compile 'momentum.modules:circularprogressview:1.+'
 }

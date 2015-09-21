@@ -6,7 +6,7 @@
 				tools:context=			"momentum.circularprogress.DemoActivityFragment"
 				android:background=		"@drawable/background_main">
 
-	<momentum.circularprogressview.CircularProgressView
+	<momentum.modules.circularprogressview.CircularProgressView
 		android:id=							"@+id/circularprogress"
 		android:layout_width=				"match_parent"
 		android:layout_height=				"match_parent"

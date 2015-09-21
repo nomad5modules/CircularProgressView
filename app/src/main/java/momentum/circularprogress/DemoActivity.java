@@ -8,7 +8,7 @@ import android.view.View;
 
 import junit.framework.Assert;
 
-import momentum.circularprogressview.CircularProgressView;
+import momentum.modules.circularprogressview.CircularProgressView;
 
 /**
  * Created by mlostek on 04.05.2015.

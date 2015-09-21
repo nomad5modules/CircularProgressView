@@ -1,4 +1,8 @@
+/* default android lib */
 apply plugin: 'com.android.library'
+/* maven and binfrog stuff */
+apply plugin: 'com.jfrog.bintray'
+
 /* this is for online work */
 apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master/version.gradle'
 /* this is for offline work */
@@ -6,7 +10,7 @@ apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master
 
 // VERSION
 versionMajor = 1
-versionMinor = 1
+versionMinor = 2
 versionPatch = 0
 
 android {
@@ -25,22 +29,147 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
 
-    def publish = project.tasks.create("_publish")
-    libraryVariants.all { variant ->
-        if(variant.name == "release")
-        variant.outputs.each { output ->
-            def file = output.outputFile
-            // rename output file
-            output.outputFile = new File(file.parent,
-                                         file.name.replace("-release", "-v" + defaultConfig.versionName))
-            // create copy task
-            def task = project.tasks.create("_publishReleaseApk", Copy)
-            task.from(output.outputFile)
-            task.into("" + rootDir + "/aar")
+ext {
+    // Where you will see your artifact in Bintray's web interface
+    // The "bintrayName" should match the name of the Bintray repro.
+    bintrayRepo         = 'maven'
+    bintrayName         = 'circularprogressview'
 
-            task.dependsOn variant.assemble
-            publish.dependsOn task
+    // Maven metadata
+    publishedGroupId    = 'momentum.modules'
+    // Save yourself a head ache, and set this equal to the name of the Android Studio library
+    // module. The artifact name needs to match the name of the library.
+    artifact            = bintrayName
+
+    libraryName         = 'CircularProgressView'
+    libraryDescription  = 'A circular progressview for Android'
+    libraryVersion      = genVersionName()
+    librarylabels       = ['Android', 'view', 'progress']
+
+    developerId         = 'mlostek'
+    developerName       = 'Martin Mlostek'
+    developerEmail      = 'mlostek@gmail.com'
+
+    // Web stuff
+    siteUrl             = 'https://github.com/momentummodules/CircularProgressView'
+    gitUrl              = 'https://github.com/momentummodules/CircularProgressView.git'
+    issuesUrl           = 'https://github.com/momentummodules/CircularProgressView/issues'
+
+    // License stuff
+    licenseName         = 'The Apache Software License, Version 2.0'
+    licenseUrl          = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    licenseShort        = 'Apache-2.0'
+}
+
+///////////////////////////////////////////////////////////////////////////////
+apply plugin: 'com.jfrog.bintray'
+
+version = libraryVersion
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+// Bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    publish = false
+
+    pkg {
+        repo = bintrayRepo
+        name = bintrayName
+        desc = libraryDescription
+        websiteUrl = siteUrl
+        issueTrackerUrl = issuesUrl
+        vcsUrl = gitUrl
+        publicDownloadNumbers = true
+        licenses = [licenseShort]
+        labels = librarylabels
+        //noinspection GroovyAssignabilityCheck
+        version {
+            // Bintray logical version name
+            name = genVersionName()
+            desc = libraryDescription
+            // Optional. The passphrase for GPG signing'
+            gpg {
+               sign = true //Determines whether to GPG sign the files. The default is false
+               passphrase = properties.getProperty("bintray.gpg.password")
+            }
+            //Optional configuration for Maven Central sync of the version
+            /*mavenCentralSync {
+                sync = true //Optional (true by default). Determines whether to sync the version to Maven Central.
+                user = 'userToken' //OSS user token
+                password = 'paasword' //OSS user password
+                close = '1' //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
+            }*/
         }
     }
 }
+
+//////////////////////////////////////////////////////////////////
+apply plugin: 'com.github.dcendents.android-maven'
+
+// Maven Group ID for the artifact
+group = publishedGroupId
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            //noinspection GroovyAssignabilityCheck
+            project {
+                packaging 'aar'
+                groupId publishedGroupId
+                artifactId artifact
+                url siteUrl
+                version libraryVersion
+                // Add your description here
+                name libraryName
+                description libraryDescription
+                // Set your license
+                licenses {
+                    license {
+                        name licenseName
+                        url licenseUrl
+                    }
+                }
+                developers {
+                    developer {
+                        id developerId
+                        name developerName
+                        email developerEmail
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+
+                }
+            }
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////

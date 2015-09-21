@@ -1,4 +1,4 @@
-package momentum.circularprogressview;
+package momentum.modules.circularprogressview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
