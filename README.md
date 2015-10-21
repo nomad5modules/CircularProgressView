@@ -25,7 +25,7 @@ Following XML attributes are allowed
 ```xml
 <momentum.circularprogressview.CircularProgressView
 	progressColor=		"#FFFFFF"
-	progressText=		"TEST PROGRESS"
+	progressText=		"TEST PROGRESS  #VAL#"
 	progressTextFont=	"consolab.ttf"
 	progressTextSize=	"36"
 	borderOffset=		"150"
@@ -39,6 +39,7 @@ progressColor:
 
 progressText:
 > The Text to be rendered
+> Add `#VAL#` to the text in order to automatically add a interger value to the progress text
 
 progressTextFont:
 > An optional ttf or otf font
@@ -51,19 +52,20 @@ borderOffset:
 > Optional border offset, next iteration will kick this,
 > its just a fix to fill the corners (*will be deprecated in next version*)
 
-fadeTime:
+fadeTimeMs:
 > The fade in and fade out time, can be set to -1 to ignore fading
 
 ## Example Application
 * An example application is included in the github repository. It can also be downloaded from the playstore here https://play.google.com/store/apps/details?id=momentum.circularprogress
 
 ## Precompiled AAR
-You can download the latest precompiled version here https://github.com/momentumlab/CircularProgressView/blob/master/aar/circularprogressview-v1.1.0.aar
+You can download the latest precompiled version here http://jcenter.bintray.com/momentum/modules/circularprogressview/1.3.0/:circularprogressview-1.3.0.aar
+
 
 ## Additional information
 * Set the progress to 0 (at the beginning) and 1 (at the end).
 * 'wrapcontent' for dimensions is not yet supported
-* Aliasing problem will be fixed soon
+* Call `setProgress` with additional interpolation time (in ms) in order to interpolate between progress values
 
 ## License
 Check file LICENSE and Make sure to follow the licensing terms and conditions of the project and the software used to build the project.
@@ -72,4 +74,4 @@ Check file LICENSE and Make sure to follow the licensing terms and conditions of
 If you have any questions or feedback, feel free to get back to me!
 
 ## Next Todo's
-* we will see
+* Add library to mavenCentral and jCenter. (Therefore a package renaming will be neccessary)

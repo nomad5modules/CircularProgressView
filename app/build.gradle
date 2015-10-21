@@ -35,5 +35,5 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':circularprogressview')
-    //compile 'momentum.modules:circularprogressview:1.2.1'
+    //compile 'momentum.modules:circularprogressview:1.3.0'
 }
