@@ -14,7 +14,6 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.Looper;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 /**
@@ -156,7 +155,6 @@ public class CircularProgressView extends View
      */
     private void fadeIn()
     {
-        Log.d("CPV", "starting fade in");
         this.animate().alpha(1f).setDuration(this.fadeTimeMs).start();
     }
 
@@ -165,7 +163,6 @@ public class CircularProgressView extends View
      */
     private void fadeOut()
     {
-        Log.d("CPV", "starting fade out");
         this.animate().alpha(0f).setDuration(this.fadeTimeMs).start();
     }
     //endregion////////////////////////////////////////////////////////////////////////////
@@ -279,7 +276,6 @@ public class CircularProgressView extends View
      */
     private void updateAndRender(float targetProgress)
     {
-        Log.d("CPV", "progress = " + targetProgress);
         // check fading ...
         if(this.fadeTimeMs > 0)
         {

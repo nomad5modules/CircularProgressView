@@ -9,7 +9,7 @@ A circular progressview for android
 This is a simple small class that renders a progress in form of an filling arc shape.
 A progress text can be rendered additionally. This text is rendered in the secondary color for the 'done' area of the arc.
 
-I used it for rendering the progress that is done in the background of all views. This view has no dependencies and min SDK version 3 can be used.
+I used it for rendering the progress that is done in the background of all views. This view has no dependencies.
 
 It also supports a custom font (that is places in the 'assets' directory) and fading of the progress view (even though I recommend setting the 'fadeTime' value to -1 and use a Fragment with a FragmentTransation to fade this view in and out).
 
@@ -34,16 +34,15 @@ Following XML attributes are allowed
 
 progressColor:
 > The main color of the progress ARC.
-> The text will be rendered in this color where
-> the arc is not yet painted
+> The text will be rendered in this color where the arc is not yet painted.
 
 progressText:
-> The Text to be rendered
-> Add `#VAL#` to the text in order to automatically add a interger value to the progress text
+> The Text to be rendered.
+> Add `#VAL#` to the text in order to automatically add a interger value to the progress text.
 
 progressTextFont:
-> An optional ttf or otf font
-> This font hast to be in the "assets" directory
+> An optional ttf or otf font.
+> This font hast to be in the "assets" directory.
 
 progressTextSize:
 > The font size
@@ -59,8 +58,7 @@ fadeTimeMs:
 * An example application is included in the github repository. It can also be downloaded from the playstore here https://play.google.com/store/apps/details?id=momentum.circularprogress
 
 ## Precompiled AAR
-You can download the latest precompiled version here http://jcenter.bintray.com/momentum/modules/circularprogressview/1.3.0/:circularprogressview-1.3.0.aar
-
+You can download the latest precompiled version here http://jcenter.bintray.com/momentum/modules/circularprogressview/1.3.0/circularprogressview-1.3.0.aar
 
 ## Additional information
 * Set the progress to 0 (at the beginning) and 1 (at the end).
