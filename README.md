@@ -58,7 +58,7 @@ fadeTimeMs:
 * An example application is included in the github repository. It can also be downloaded from the playstore here https://play.google.com/store/apps/details?id=momentum.circularprogress
 
 ## Precompiled AAR
-You can download the latest precompiled version here http://jcenter.bintray.com/momentum/modules/circularprogressview/1.3.0/circularprogressview-1.3.0.aar
+You can download the latest precompiled version here http://jcenter.bintray.com/momentum/modules/circularprogressview/1.3.1/circularprogressview-1.3.1.aar
 
 ## Additional information
 * Set the progress to 0 (at the beginning) and 1 (at the end).
