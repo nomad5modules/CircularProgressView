@@ -29,7 +29,7 @@ Following XML attributes are allowed
 	progressTextFont=	"consolab.ttf"
 	progressTextSize=	"36"
 	borderOffset=		"150"
-	fadeTime=			"500" />
+	fadeTimeMs=			"500" />
 ```
 
 progressColor:
