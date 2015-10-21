@@ -6,6 +6,6 @@
 		<attr name="progressTextFont" 	format="string"/>
 		<attr name="progressTextSize" 	format="integer"/>
 		<attr name="borderOffset"		format="integer"/>
-		<attr name="fadeTime"			format="integer"/>
+		<attr name="fadeTimeMs"			format="integer"/>
 	</declare-styleable>
 </resources>

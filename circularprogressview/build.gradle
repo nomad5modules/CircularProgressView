@@ -8,8 +8,8 @@ apply from: 'https://raw.githubusercontent.com/momentummodules/GradleVersion/mas
 
 // VERSION
 versionMajor = 1
-versionMinor = 2
-versionPatch = 1
+versionMinor = 3
+versionPatch = 0
 
 android {
     compileSdkVersion 23
@@ -31,30 +31,27 @@ android {
 
 ext {
     // Where you will see your artifact in Bintray's web interface
-    // The "bintrayName" should match the name of the Bintray repro.
+    // The "bintrayName" should match the name of the Bintray repo.
     bintrayRepo         = 'maven'
     bintrayName         = 'circularprogressview'
-
     // Maven metadata
     publishedGroupId    = 'momentum.modules'
     // Save yourself a head ache, and set this equal to the name of the Android Studio library
     // module. The artifact name needs to match the name of the library.
     artifact            = bintrayName
-
+    // Details
     libraryName         = 'CircularProgressView'
     libraryDescription  = 'A circular progressview for Android'
     libraryVersion      = genVersionName()
     librarylabels       = ['Android', 'view', 'progress']
-
+    // Developer stuff
     developerId         = 'mlostek'
-    developerName       = 'Martin Mlostek'
+    developerName       = 'Martin Mlostek [Momentum Modules]'
     developerEmail      = 'mlostek@gmail.com'
-
     // Web stuff
     siteUrl             = 'https://github.com/momentummodules/CircularProgressView'
     gitUrl              = 'https://github.com/momentummodules/CircularProgressView.git'
     issuesUrl           = 'https://github.com/momentummodules/CircularProgressView/issues'
-
     // License stuff
     licenseName         = 'The Apache Software License, Version 2.0'
     licenseUrl          = 'http://www.apache.org/licenses/LICENSE-2.0.txt'

@@ -6,8 +6,8 @@ apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master
 
 // VERSION
 versionMajor = 1
-versionMinor = 2
-versionPatch = 1
+versionMinor = 3
+versionPatch = 0
 
 android {
     compileSdkVersion 23
@@ -35,5 +35,5 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':circularprogressview')
-    //compile 'momentum.modules:circularprogressview:1.+'
+    //compile 'momentum.modules:circularprogressview:1.2.1'
 }
