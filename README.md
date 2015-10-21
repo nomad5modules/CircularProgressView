@@ -57,6 +57,19 @@ fadeTimeMs:
 ## Example Application
 * An example application is included in the github repository. It can also be downloaded from the playstore here https://play.google.com/store/apps/details?id=momentum.circularprogress
 
+## Gradle include from jCenter
+You can add it also via
+
+```java
+// The dependencies
+dependencies {
+    /* the circular progress view */
+    compile 'momentum.modules:circularprogressview:1.3.1'
+}
+```
+
+This just works with jcenter. Not yet with mavenCentral!
+
 ## Precompiled AAR
 You can download the latest precompiled version here http://jcenter.bintray.com/momentum/modules/circularprogressview/1.3.1/circularprogressview-1.3.1.aar
 
