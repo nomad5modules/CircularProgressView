@@ -2,7 +2,7 @@
 apply plugin: 'com.android.library'
 
 /* this is for online work */
-apply from: 'https://raw.githubusercontent.com/momentummodules/GradleVersion/master/version.gradle'
+apply from: 'https://raw.githubusercontent.com/nomad5modules/GradleVersion/master/version.gradle'
 /* this is for offline work */
 //apply from: 'X:\\libs\\gradle\\GradleVersion\\version.gradle'
 
@@ -13,7 +13,7 @@ versionPatch = 1
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         minSdkVersion 14
@@ -35,7 +35,7 @@ ext {
     bintrayRepo         = 'maven'
     bintrayName         = 'circularprogressview'
     // Maven metadata
-    publishedGroupId    = 'momentum.modules'
+    publishedGroupId    = 'com.nomad5'
     // Save yourself a head ache, and set this equal to the name of the Android Studio library
     // module. The artifact name needs to match the name of the library.
     artifact            = bintrayName
@@ -47,11 +47,11 @@ ext {
     // Developer stuff
     developerId         = 'mlostek'
     developerName       = 'Martin Mlostek [Momentum Modules]'
-    developerEmail      = 'mlostek@gmail.com'
+    developerEmail      = 'info@nomad5.com'
     // Web stuff
-    siteUrl             = 'https://github.com/momentummodules/CircularProgressView'
-    gitUrl              = 'https://github.com/momentummodules/CircularProgressView.git'
-    issuesUrl           = 'https://github.com/momentummodules/CircularProgressView/issues'
+    siteUrl             = 'https://github.com/nomad5modules/CircularProgressView'
+    gitUrl              = 'https://github.com/nomad5modules/CircularProgressView.git'
+    issuesUrl           = 'https://github.com/nomad5modules/CircularProgressView/issues'
     // License stuff
     licenseName         = 'The Apache Software License, Version 2.0'
     licenseUrl          = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
@@ -59,7 +59,7 @@ ext {
 }
 
 /* APPLY MAVEN AND BINTRAY PLUGIN */
-apply from: 'https://raw.githubusercontent.com/momentummodules/GradleBintray/master/maven.gradle'
-apply from: 'https://raw.githubusercontent.com/momentummodules/GradleBintray/master/bintray.gradle'
+apply from: 'https://raw.githubusercontent.com/nomad5modules/GradleBintray/master/maven.gradle'
+apply from: 'https://raw.githubusercontent.com/nomad5modules/GradleBintray/master/bintray.gradle'
 //apply from: 'X:\\libs\\gradle\\GradleBintray\\maven.gradle'
 //apply from: 'X:\\libs\\gradle\\GradleBintray\\bintray.gradle'

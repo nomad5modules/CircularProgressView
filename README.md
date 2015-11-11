@@ -16,7 +16,7 @@ It also supports a custom font (that is places in the 'assets' directory) and fa
 All values are optional. If you want to reuse the view from the code, simply set the class members in the CircularProgressView class accordingly.
 
 
-![alt text](https://github.com/momentumlab/CircularProgressView/blob/master/demo.gif "Example")
+![alt text](https://github.com/nomad5modules/CircularProgressView/blob/master/demo.gif "Example")
 
 ## XML Attributes
 
@@ -55,7 +55,7 @@ fadeTimeMs:
 > The fade in and fade out time, can be set to -1 to ignore fading
 
 ## Example Application
-* An example application is included in the github repository. It can also be downloaded from the playstore here https://play.google.com/store/apps/details?id=momentum.circularprogress
+* An example application is included in the github repository. It can also be downloaded from the playstore here https://play.google.com/store/apps/details?id=com.nomad5.circularprogress
 
 ## Gradle include from jCenter
 You can add it also via
@@ -64,14 +64,14 @@ You can add it also via
 // The dependencies
 dependencies {
     /* the circular progress view */
-    compile 'momentum.modules:circularprogressview:1.3.1'
+    compile 'com.nomad5:circularprogressview:1.3.1'
 }
 ```
 
-This just works with jcenter. Not yet with mavenCentral!
+This works with jCenter and mavenCentral.
 
 ## Precompiled AAR
-You can download the latest precompiled version here http://jcenter.bintray.com/momentum/modules/circularprogressview/1.3.1/circularprogressview-1.3.1.aar
+You can download the latest precompiled version here https://dl.bintray.com/mlostek/maven/com/nomad5/circularprogressview/1.3.1/circularprogressview-1.3.1.aar
 
 ## Additional information
 * Set the progress to 0 (at the beginning) and 1 (at the end).
@@ -85,4 +85,4 @@ Check file LICENSE and Make sure to follow the licensing terms and conditions of
 If you have any questions or feedback, feel free to get back to me!
 
 ## Next Todo's
-* Add library to mavenCentral and jCenter. (Therefore a package renaming will be neccessary)
+* nothing on the list. Any suggestions?

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-		  package="momentum.modules.circularprogressview">
+		  package="com.nomad5.circularprogressview">
 
 	<application/>
 

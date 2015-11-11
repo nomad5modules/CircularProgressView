@@ -11,10 +11,10 @@ versionPatch = 1
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "momentum.circularprogress"
+        applicationId "com.nomad5.circularprogress"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode genVersionCode()

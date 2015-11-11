@@ -1,4 +1,4 @@
-package momentum.modules.circularprogressview;
+package com.nomad5.circularprogressview;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

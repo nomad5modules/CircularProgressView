@@ -1,7 +1,5 @@
-package momentum.circularprogress;
+package com.nomad5.circularprogress;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +8,7 @@ import junit.framework.Assert;
 
 import java.util.Random;
 
-import momentum.modules.circularprogressview.CircularProgressView;
+import com.nomad5.circularprogressview.CircularProgressView;
 
 /**
  * Created by mlostek on 04.05.2015.

@@ -3,10 +3,10 @@
                 xmlns:circularProgress=	"http://schemas.android.com/apk/res-auto"
                 android:layout_width=	"match_parent"
                 android:layout_height=	"match_parent"
-                tools:context=			"momentum.circularprogress.DemoActivityFragment"
+                tools:context=			"com.circularprogress.DemoActivityFragment"
                 android:background=		"@drawable/background_main">
 
-    <momentum.modules.circularprogressview.CircularProgressView
+    <com.nomad5.circularprogressview.CircularProgressView
         android:id=							"@+id/circularprogress"
         android:layout_width=				"match_parent"
         android:layout_height=				"match_parent"
