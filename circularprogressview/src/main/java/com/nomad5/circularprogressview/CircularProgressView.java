@@ -48,7 +48,7 @@ public class CircularProgressView extends View
     int height = 					    0;
 
     // the paintProgress and the path
-    final Paint paint = 			    new Paint(Paint.ANTI_ALIAS_FLAG);
+    final Paint paint = 			    new Paint(Paint.ANTI_ALIAS_FLAG | Paint.SUBPIXEL_TEXT_FLAG);
     final PorterDuffXfermode cls = 	    new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
 
     RectF progressBounds = 			    new RectF();

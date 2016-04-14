@@ -3,17 +3,15 @@ apply plugin: 'com.android.library'
 
 /* this is for online work */
 apply from: 'https://raw.githubusercontent.com/nomad5modules/GradleVersion/master/version.gradle'
-/* this is for offline work */
-//apply from: 'X:\\libs\\gradle\\GradleVersion\\version.gradle'
 
 // VERSION
 versionMajor = 1
 versionMinor = 3
-versionPatch = 1
+versionPatch = 2
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         minSdkVersion 14
@@ -61,5 +59,3 @@ ext {
 /* APPLY MAVEN AND BINTRAY PLUGIN */
 apply from: 'https://raw.githubusercontent.com/nomad5modules/GradleBintray/master/maven.gradle'
 apply from: 'https://raw.githubusercontent.com/nomad5modules/GradleBintray/master/bintray.gradle'
-//apply from: 'X:\\libs\\gradle\\GradleBintray\\maven.gradle'
-//apply from: 'X:\\libs\\gradle\\GradleBintray\\bintray.gradle'
