@@ -1,21 +1,19 @@
-/* default android lib */
 apply plugin: 'com.android.library'
-
-/* this is for online work */
+apply plugin: 'com.jfrog.bintray'
 apply from: 'https://raw.githubusercontent.com/nomad5modules/GradleVersion/master/version.gradle'
 
 // VERSION
 versionMajor = 1
 versionMinor = 3
-versionPatch = 2
+versionPatch = 3
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 26
         versionCode genVersionCode()
         versionName genVersionName()
     }
@@ -44,8 +42,8 @@ ext {
     librarylabels       = ['Android', 'view', 'progress']
     // Developer stuff
     developerId         = 'mlostek'
-    developerName       = 'Martin Mlostek [Momentum Modules]'
-    developerEmail      = 'info@nomad5.com'
+    developerName       = 'Martin Mlostek [Nomad5]'
+    developerEmail      = 'martin@nomad5.com'
     // Web stuff
     siteUrl             = 'https://github.com/nomad5modules/CircularProgressView'
     gitUrl              = 'https://github.com/nomad5modules/CircularProgressView.git'

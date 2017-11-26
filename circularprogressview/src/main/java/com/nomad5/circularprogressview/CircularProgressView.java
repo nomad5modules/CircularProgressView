@@ -64,7 +64,7 @@ public class CircularProgressView extends View
     ValueAnimator valueAnimator =       null;
 
     //region//////////////////////////////////////////////////////////////// CONSTRUCTION
-    /**
+    /****************************************************************************************************************************
      * Java Code Constructor
      */
     public CircularProgressView(Context context)
@@ -72,7 +72,7 @@ public class CircularProgressView extends View
         super(context);
     }
 
-    /**
+    /****************************************************************************************************************************
      * XML Constructor
      */
     public CircularProgressView(Context context, AttributeSet attrs)
@@ -81,7 +81,7 @@ public class CircularProgressView extends View
         this.parseAttributes(context, attrs);
     }
 
-    /**
+    /****************************************************************************************************************************
      * XML Constructor with style
      */
     public CircularProgressView(Context context, AttributeSet attrs, int defStyle)
@@ -90,7 +90,7 @@ public class CircularProgressView extends View
         this.parseAttributes(context, attrs);
     }
 
-    /**
+    /****************************************************************************************************************************
      * Parse the attributes
      */
     private void parseAttributes(Context context, AttributeSet attrs)
@@ -117,7 +117,7 @@ public class CircularProgressView extends View
         }
     }
 
-    /**
+    /****************************************************************************************************************************
      * Check the given text string for #VAL#
      */
     private void parseText(String text)
@@ -139,6 +139,8 @@ public class CircularProgressView extends View
     //endregion////////////////////////////////////////////////////////////////////////////
 
     //region//////////////////////////////////////////////////////////////// ANIMATOR LISTENER
+    /****************************************************************************************************************************
+     */
     ValueAnimator.AnimatorUpdateListener updateListener = new ValueAnimator.AnimatorUpdateListener()
     {
         @Override
@@ -150,7 +152,7 @@ public class CircularProgressView extends View
     //endregion////////////////////////////////////////////////////////////////////////////
 
     //region//////////////////////////////////////////////////////////////// FADING
-    /**
+    /****************************************************************************************************************************
      * Start fade in
      */
     private void fadeIn()
@@ -158,7 +160,7 @@ public class CircularProgressView extends View
         this.animate().alpha(1f).setDuration(this.fadeTimeMs).start();
     }
 
-    /**
+    /****************************************************************************************************************************
      * Start fade out
      */
     private void fadeOut()
@@ -167,6 +169,8 @@ public class CircularProgressView extends View
     }
     //endregion////////////////////////////////////////////////////////////////////////////
 
+    /****************************************************************************************************************************
+     */
     @Override
     protected void onSizeChanged(int width, int height, int oldWidth, int oldHeight)
     {
@@ -196,6 +200,8 @@ public class CircularProgressView extends View
         this.paint.getTextBounds(this.progressText, 0, this.progressText.length(), this.textBounds);
     }
 
+    /****************************************************************************************************************************
+     */
     @Override
     protected void onDraw(Canvas canvas)
     {
@@ -233,7 +239,7 @@ public class CircularProgressView extends View
         canvas.drawBitmap(this.bmpForeground, 0, 0, this.paint);
     }
 
-    /**
+    /****************************************************************************************************************************
      * Set the title of this view programmatically
      * Updates the text bounds needed for rendering
      */
@@ -243,7 +249,7 @@ public class CircularProgressView extends View
         this.parseText(text);
     }
 
-    /**
+    /****************************************************************************************************************************
      * Progress setter
      * (floats from 0 to 1)
      *
@@ -271,7 +277,7 @@ public class CircularProgressView extends View
         }
     }
 
-    /**
+    /****************************************************************************************************************************
      * Set the progress value and render it
      */
     private void updateAndRender(float targetProgress)

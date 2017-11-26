@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.nomad5.circularprogressview.CircularProgressView;
+
 import junit.framework.Assert;
 
 import java.util.Random;
-
-import com.nomad5.circularprogressview.CircularProgressView;
 
 /**
  * Created by mlostek on 04.05.2015.
@@ -56,7 +56,7 @@ public class DemoActivity extends Activity
      */
     private void startInterpolatedAnim(float targetValue)
     {
-        final CircularProgressView progressView = (CircularProgressView)this.findViewById(R.id.circularprogress);
+        final CircularProgressView progressView = this.findViewById(R.id.circularprogress);
         Assert.assertNotNull(progressView);
         progressView.setProgress(targetValue, 3000);
     }
