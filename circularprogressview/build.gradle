@@ -36,7 +36,7 @@ ext {
     // module. The artifact name needs to match the name of the library.
     artifact            = bintrayName
     // Details
-    libraryName         = 'CircularProgressView'
+    libraryName         = bintrayName
     libraryDescription  = 'A circular progressview for Android'
     libraryVersion      = genVersionName()
     librarylabels       = ['Android', 'view', 'progress']
