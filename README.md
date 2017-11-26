@@ -64,14 +64,11 @@ You can add it also via
 // The dependencies
 dependencies {
     /* the circular progress view */
-    compile 'com.nomad5:circularprogressview:1.3.1'
+    compile 'com.nomad5:circularprogressview:1.3.3'
 }
 ```
 
 This works with jCenter and mavenCentral.
-
-## Precompiled AAR
-You can download the latest precompiled version here https://dl.bintray.com/mlostek/maven/com/nomad5/circularprogressview/1.3.1/circularprogressview-1.3.1.aar
 
 ## Additional information
 * Set the progress to 0 (at the beginning) and 1 (at the end).
