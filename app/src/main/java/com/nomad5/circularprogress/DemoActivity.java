@@ -12,14 +12,14 @@ import java.util.Random;
 
 /**
  * Created by mlostek on 04.05.2015.
- *
  * Demo activity to demonstrate the CircularProgressView
  */
 public class DemoActivity extends Activity
 {
-    // Random value
     Random random = new Random();
 
+    /****************************************************************************************************************************
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -27,7 +27,7 @@ public class DemoActivity extends Activity
         this.setContentView(R.layout.activity_demo);
     }
 
-    /**
+    /****************************************************************************************************************************
      * Start the progress with interpolated mode for random value
      */
     public void onStartRandomClicked(final View view)
@@ -35,23 +35,23 @@ public class DemoActivity extends Activity
         this.startInterpolatedAnim(this.random.nextFloat());
     }
 
-    /**
+    /****************************************************************************************************************************
      * Start the progress with interpolated mode with target value 0
      */
-    public void onStartRandomClicked0(final View view)
+    public void onStart0Clicked(final View view)
     {
         this.startInterpolatedAnim(0f);
     }
 
-    /**
+    /****************************************************************************************************************************
      * Start the progress with interpolated mode with target value 1
      */
-    public void onStartRandomClicked1(final View view)
+    public void onStart1Clicked(final View view)
     {
         this.startInterpolatedAnim(1f);
     }
 
-    /**
+    /****************************************************************************************************************************
      * Start interpolated animation
      */
     private void startInterpolatedAnim(float targetValue)

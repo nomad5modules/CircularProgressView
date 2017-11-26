@@ -28,42 +28,41 @@ import android.view.View;
 public class CircularProgressView extends View
 {
     // This is the size of the arc shape
-    private int borderOffset = 		    250;
+    private int     borderOffset     = 250;
     // The color of the circular progress
-    private int progressColor = 	    Color.WHITE;
+    private int     progressColor    = Color.WHITE;
     // The size of the text
-    private int progressTextSize = 	    32;
+    private int     progressTextSize = 32;
     // The font of the text
-    private String progressFont =	    null;
+    private String  progressFont     = null;
     // The main text to be rendered
-    private String progressText = 	    "";
+    private String  progressText     = "";
     // The progress values
-    private float progress = 		    0f;
+    private float   progress         = 0f;
     // Check if we have to add the progress float
-    private boolean progressAddValue =  false;
+    private boolean progressAddValue = false;
     // The fade-in and fade-out times
-    private int fadeTimeMs =		    0;
+    private int     fadeTimeMs       = 0;
     // The dimensions of this view
-    int width = 					    0;
-    int height = 					    0;
+    private int     width            = 0;
+    private int     height           = 0;
 
     // the paintProgress and the path
-    final Paint paint = 			    new Paint(Paint.ANTI_ALIAS_FLAG | Paint.SUBPIXEL_TEXT_FLAG);
-    final PorterDuffXfermode cls = 	    new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+    private final Paint              paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.SUBPIXEL_TEXT_FLAG);
+    private final PorterDuffXfermode cls   = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
 
-    RectF progressBounds = 			    new RectF();
-    Rect textBounds = 				    new Rect();
-
+    // internal bounds
+    private RectF  progressBounds   = new RectF();
+    private Rect   textBounds       = new Rect();
     // the bitmaps to draw on
-    Bitmap bmpForeground = 			    null;
-    Canvas canvasForeground = 	    	null;
-    Bitmap bmpBackground = 			    null;
-    Canvas canvasBackground = 		    null;
+    private Bitmap bmpForeground    = null;
+    private Canvas canvasForeground = null;
+    private Bitmap bmpBackground    = null;
+    private Canvas canvasBackground = null;
 
     // the interpolate animator
-    ValueAnimator valueAnimator =       null;
+    private ValueAnimator valueAnimator = null;
 
-    //region//////////////////////////////////////////////////////////////// CONSTRUCTION
     /****************************************************************************************************************************
      * Java Code Constructor
      */
@@ -136,9 +135,7 @@ public class CircularProgressView extends View
         }
         this.paint.getTextBounds(this.progressText, 0, this.progressText.length(), this.textBounds);
     }
-    //endregion////////////////////////////////////////////////////////////////////////////
 
-    //region//////////////////////////////////////////////////////////////// ANIMATOR LISTENER
     /****************************************************************************************************************************
      */
     ValueAnimator.AnimatorUpdateListener updateListener = new ValueAnimator.AnimatorUpdateListener()
@@ -146,12 +143,10 @@ public class CircularProgressView extends View
         @Override
         public void onAnimationUpdate(ValueAnimator animation)
         {
-            CircularProgressView.this.updateAndRender((float)animation.getAnimatedValue());
+            CircularProgressView.this.updateAndRender((float) animation.getAnimatedValue());
         }
     };
-    //endregion////////////////////////////////////////////////////////////////////////////
 
-    //region//////////////////////////////////////////////////////////////// FADING
     /****************************************************************************************************************************
      * Start fade in
      */
@@ -167,7 +162,6 @@ public class CircularProgressView extends View
     {
         this.animate().alpha(0f).setDuration(this.fadeTimeMs).start();
     }
-    //endregion////////////////////////////////////////////////////////////////////////////
 
     /****************************************************************************************************************************
      */
@@ -185,9 +179,9 @@ public class CircularProgressView extends View
         this.canvasForeground = new Canvas(this.bmpForeground);
         // create render objects
         this.progressBounds = new RectF(-this.borderOffset,
-                                               -this.borderOffset,
-                                               this.width + this.borderOffset,
-                                               this.height + this.borderOffset);
+                                        -this.borderOffset,
+                                        this.width + this.borderOffset,
+                                        this.height + this.borderOffset);
         // the painter
         if(this.progressFont != null)
         {
@@ -211,7 +205,6 @@ public class CircularProgressView extends View
         {
             txt = String.format(this.progressText, this.progress * 100f);
             this.paint.getTextBounds(txt, 0, txt.length(), this.textBounds);
-
         }
         float progressAngle = this.progress * 360f;
         progressAngle = Math.min(progressAngle, 360f);
@@ -285,7 +278,7 @@ public class CircularProgressView extends View
         // check fading ...
         if(this.fadeTimeMs > 0)
         {
-            if     (targetProgress > 0f && this.progress == 0f) this.fadeIn();
+            if(targetProgress > 0f && this.progress == 0f) this.fadeIn();
             else if(targetProgress < 1f && this.progress == 1f) this.fadeIn();
             else if(targetProgress == 0f && this.progress > 0f) this.fadeOut();
             else if(targetProgress == 1f && this.progress < 1f) this.fadeOut();
