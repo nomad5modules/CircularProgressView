@@ -4,7 +4,7 @@ apply from: 'https://raw.githubusercontent.com/momentummodules/Versioning/master
 // VERSION
 versionMajor = 1
 versionMinor = 3
-versionPatch = 3
+versionPatch = 4
 
 android {
     compileSdkVersion 26
